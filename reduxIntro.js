@@ -298,4 +298,32 @@ const decAction = () => {
 
 const store = Redux.createStore(counterReducer); // Define the Redux store here, passing in your reducers
 
-// Never mutate state
+// Never mutate state challenge
+const ADD_TO_DO = 'ADD_TO_DO';
+
+const todos = [
+  'Go to the store',
+  'Clean the house',
+  'Cook dinner',
+  'Learn to code',
+];
+
+const immutableReducer = (state = todos, action) => {
+  switch(action.type) {
+    case ADD_TO_DO:
+      return state.concat(action.todo);
+    default:
+      return state;
+  }
+};
+
+const addToDo = (todo) => {
+  return {
+    type: ADD_TO_DO,
+    todo
+  }
+}
+
+const store = Redux.createStore(immutableReducer);
+
+// Use the spread operator on arrays
