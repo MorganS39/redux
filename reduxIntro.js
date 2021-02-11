@@ -14,3 +14,12 @@ const currentState = store.getState();
 // Define a Redux action
 var action = {type: 'LOGIN'};
 
+// Define an action creator
+const action = {
+  type: 'LOGIN'
+}
+function actionCreator() {
+  return {action};
+}
+
+// Dispatch an action event
