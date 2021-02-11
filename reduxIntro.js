@@ -12,3 +12,5 @@ const store = Redux.createStore(
 const currentState = store.getState();
 
 // Define a Redux action
+var action = {type: 'LOGIN'};
+
