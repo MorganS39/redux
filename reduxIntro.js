@@ -327,3 +327,23 @@ const addToDo = (todo) => {
 const store = Redux.createStore(immutableReducer);
 
 // Use the spread operator on arrays
+const immutableReducer = (state = ['Do not mutate state!'], action) => {
+  switch(action.type) {
+    case 'ADD_TO_DO':
+      var newArray = [...state, action.todo];
+      return newArray;
+    default:
+      return state;
+  }
+};
+
+const addToDo = (todo) => {
+  return {
+    type: 'ADD_TO_DO',
+    todo
+  }
+}
+
+const store = Redux.createStore(immutableReducer);
+
+// Remove an item from an array
